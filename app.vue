@@ -7,27 +7,15 @@ const generatedAt = useState(() => new Date().toISOString())
   <div id="container">
     <Head>
       <Title>Nuxt on the edge</Title>
-      <Meta
-        name="description"
-        content="HTML, dynamically rendered in a city near you"
-      />
+      <Meta name="description" content="HTML, dynamically rendered in a city near you" />
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:site" content="@nuxt_js" />
       <Meta name="twitter:creator" content="@nuxt_js" />
       <Meta name="twitter:title" content="Nuxt on the edge" />
-      <Meta
-        name="twitter:description"
-        content="HTML, dynamically rendered in a city near you"
-      />
-      <Meta
-        name="twitter:image"
-        content="https://nuxt-on-the-edge.vercel.app/og-card.png"
-      />
+      <Meta name="twitter:description" content="HTML, dynamically rendered in a city near you" />
+      <Meta name="twitter:image" content="https://nuxt-on-the-edge.vercel.app/og-card.png" />
       <Meta name="twitter:image:alt" content="The Vercel and Nuxt logos" />
-      <Meta
-        name="og:image"
-        content="https://nuxt-on-the-edge.vercel.app/og-card.png"
-      />
+      <Meta name="og:image" content="https://nuxt-on-the-edge.vercel.app/og-card.png" />
     </Head>
     <div style="height: 100%">
       <AppBackground />
@@ -37,14 +25,8 @@ const generatedAt = useState(() => new Date().toISOString())
           <div class="block">
             <div class="contents">
               <span>Your city</span>
-              <strong
-                :title="
-                  info.city === '-'
-                    ? 'GeoIP information could not be derived from your IP'
-                    : null
-                "
-              >
-                {{ info.city }}
+              <strong :title="info?.city === '-' ? 'GeoIP information could not be derived from your IP' : undefined">
+                {{ info?.city ?? 'Unknown' }}
               </strong>
             </div>
           </div>
@@ -52,7 +34,14 @@ const generatedAt = useState(() => new Date().toISOString())
           <div class="block">
             <div class="contents">
               <span>Your IP address</span>
-              <strong>{{ info.ip }}</strong>
+              <strong>{{ info?.ip ?? 'Unknown' }}</strong>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="contents">
+              <span>Visits</span>
+              <strong>{{ info?.visits ?? 'Unknown' }}</strong>
             </div>
           </div>
         </div>
@@ -71,11 +60,7 @@ const generatedAt = useState(() => new Date().toISOString())
         on
         <NuxtLink to="https://vercel.com" target="_blank">Vercel</NuxtLink>
       </p>
-      <NuxtLink
-        target="_blank"
-        href="https://github.com/pi0/nuxt-on-the-edge"
-        class="source"
-      >
+      <NuxtLink target="_blank" href="https://github.com/pi0/nuxt-on-the-edge" class="source">
         <LogoGithub />
         Source
       </NuxtLink>
@@ -94,8 +79,8 @@ body {
   --bg: white;
   --primary: #00dc82;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
   background: var(--bg);
   color: var(--fg);
 }
