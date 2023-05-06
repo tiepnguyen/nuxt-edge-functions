@@ -30,14 +30,12 @@ const generatedAt = useState(() => new Date().toISOString())
               </strong>
             </div>
           </div>
-
           <div class="block">
             <div class="contents">
               <span>Your IP address</span>
               <strong>{{ info?.ip ?? 'Unknown' }}</strong>
             </div>
           </div>
-
           <div class="block">
             <div class="contents">
               <span>Visits</span>
