@@ -1,4 +1,9 @@
-import kv from '@vercel/kv'
+import {createClient} from '@vercel/kv'
+
+const kv = createClient({
+  url: process.env.KV_REST_API_URL,
+  token: process.env.KV_REST_API_TOKEN
+})
 
 export default defineEventHandler(async (event) => {
   const cityHeader = getHeader(event, 'x-vercel-ip-city')
